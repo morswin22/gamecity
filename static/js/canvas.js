@@ -1,9 +1,9 @@
 let topDocument = window.top.document;
 let wrapper = topDocument.querySelector('.wrapper');
 
-let menu = wrapper.querySelector('.menu');
+let menuDOM = wrapper.querySelector('.menu');
 let i = 0;
-for (let li of menu.querySelectorAll('li')) {
+for (let li of menuDOM.querySelectorAll('li')) {
     let handler;
     switch(i) {
         case 0: 
@@ -13,7 +13,7 @@ for (let li of menu.querySelectorAll('li')) {
             break;
         case 1: 
             handler = () => {
-                // about
+                window.top.location = '/saves';
             }
             break;
         case 2: 
@@ -26,6 +26,18 @@ for (let li of menu.querySelectorAll('li')) {
     i++;
 }
 
+let statsDOM = wrapper.querySelector('#stats');
+show(statsDOM);
+statsDOM.innerHTML = 'Statistics';
+
+
+function show(elem) {
+    elem.style.display = 'initial';
+}
+function hide(elem) {
+    elem.style.display = 'none';
+}
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
 }
@@ -35,5 +47,11 @@ function windowResized() {
 }
 
 function draw() {
-    background(51);
+    background(51,51,51,75);
+}
+
+function mouseDragged() {
+    stroke(random()*255,random()*255,random()*255);
+    strokeWeight(random(1,3)*16);
+    point(mouseX, mouseY);
 }

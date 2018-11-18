@@ -1,0 +1,41 @@
+#logout {
+  cursor: pointer;
+  position: absolute;
+  top: 1.5em;
+  right: 3.5em;
+  padding: 0.7em 0.9em;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 14px;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+}
+
+#logout:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 350px;
+  margin: 4em auto 1em;
+}
+
+.wrapper ul {
+  width: 100%;
+}
+
+.wrapper ul li {
+  position: relative;
+  padding: .4em 0;
+}
+
+.wrapper ul li i {
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  right: 0;
+}
+/*# sourceMappingURL=saves.css.map */
