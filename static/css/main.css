@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+form {
+  margin: 0;
+}
+
+input {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+i.material-icons {
+  font-size: 15px;
+}
+
+@-webkit-keyframes autofill {
+  to {
+    background: transparent;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+iframe {
+  border: 0;
+}
+
+* {
+  font-size: 16px;
+  font-family: 'Montserrat';
+}
+
+form {
+  width: 250px;
+}
+
+form input {
+  width: 100%;
+}
+
+.error-list {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  width: 450px;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+.error-list li {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid;
+  border-radius: 10px;
+  opacity: 1;
+  -webkit-transition: opacity 400ms ease-in-out;
+  transition: opacity 400ms ease-in-out;
+}
+
+.error-list li.success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.error-list li.danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.error-list li.warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.error-list li.info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.error-list li.fade {
+  opacity: 0;
+}
+
+.error-list li i {
+  cursor: pointer;
+}
+/*# sourceMappingURL=main.css.map */

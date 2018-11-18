@@ -1,0 +1,62 @@
+@import 'normalize';
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+    font-size: 16px;
+    font-family: 'Montserrat';
+}
+
+form {
+    width: 250px;
+
+    input {
+        width: 100%;
+    }
+}
+
+.error-list {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    width: 450px;
+    transform: translate(-50%, 0);
+
+    li {
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid;
+        border-radius: 10px;
+        opacity: 1;
+        transition: opacity 400ms ease-in-out;
+
+        &.success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        &.danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        &.warning {
+            color: #856404;
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+        }
+        &.info {
+            color: #0c5460;
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+        }
+
+        &.fade {
+            opacity: 0;
+        }
+
+        i {
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+form {
+    margin: 0;
+}
+
+input {
+    box-sizing: border-box;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+i.material-icons {
+    font-size: 15px;
+}
+
+@-webkit-keyframes autofill {
+    to {
+        // color: #666;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
+iframe {
+    border: 0;
+}

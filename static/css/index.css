@@ -1,0 +1,44 @@
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 750px;
+  height: 100vh;
+  margin: 0 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper form input[type=email], .wrapper form input[type=password], .wrapper form input[type=text] {
+  border-bottom: 1px solid #ddd;
+  margin: 0.7em 0;
+  padding: 0.3em;
+  outline: none;
+}
+
+.wrapper form input[type=submit] {
+  margin: 1.5em 0;
+  border: 1px solid #ddd;
+  padding: 0.7em;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 200ms ease;
+  transition: -webkit-transform 200ms ease;
+  transition: transform 200ms ease;
+  transition: transform 200ms ease, -webkit-transform 200ms ease;
+}
+
+.wrapper form input[type=submit]:hover {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.wrapper form input[type=submit]:active {
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
+}
+/*# sourceMappingURL=index.css.map */

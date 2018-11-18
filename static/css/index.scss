@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    width: 750px;
+    height: 100vh;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+
+    form {
+        input[type=email], input[type=password], input[type=text] {
+            border-bottom: 1px solid #ddd;
+            margin: 0.7em 0;
+            padding: 0.3em;
+            outline: none;
+        }
+        input[type=submit] {
+            margin: 1.5em 0;
+            border: 1px solid #ddd;
+            padding: 0.7em;
+            outline: none;
+            cursor: pointer;
+
+            transition: transform 200ms ease;
+
+            &:hover {
+                transform: scale(0.95);
+            }
+            &:active {
+                transform: scale(0.85);
+            }
+        }
+    }
+}

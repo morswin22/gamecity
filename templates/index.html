@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/index.css">
+{% endblock %}
+
+{% block body %}
+<div class="wrapper">
+
+    <form action="/login" method="POST">
+        <input type="email" name="email" placeholder="E-mail">
+        <input type="password" name="pass" placeholder="Password">
+        <input type="submit" value="Login">
+    </form>
+
+    <form action="/register" method="POST">
+        <input type="email" name="email" placeholder="E-mail">
+        <input type="password" name="pass" placeholder="Password">
+        <input type="submit" value="Register">
+    </form>
+
+</div>
+
+<script src="/static/js/index.js"></script>
+{% endblock %}
