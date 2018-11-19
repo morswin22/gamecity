@@ -1,3 +1,28 @@
+let addForm = document.createElement('form');
+addForm.method = 'POST';
+addForm.action = '/newSave';
+
+let addName = document.createElement('input');
+addName.placeholder = 'New save';
+addName.name = 'name';
+addName.autocomplete = 'off';
+
+let addI = document.createElement('i');
+addI.classList.add("material-icons");
+addI.innerHTML = 'add_circle_outline';
+addI.addEventListener('click', ()=>{
+    addForm.submit();
+});
+
+let addSubmit = document.createElement('input');
+addSubmit.hidden = 'hidden';
+addSubmit.type = 'submit';
+
+addForm.appendChild(addName);
+addForm.appendChild(addI);
+addForm.appendChild(addSubmit);
+document.querySelector('.wrapper').appendChild(addForm);
+
 let savesList = document.createElement('ul');
 document.querySelector('.wrapper').appendChild(savesList);
 
@@ -26,4 +51,4 @@ getSaves();
 let logout = document.querySelector('#logout');
 logout.addEventListener('click', ()=>{
     location.href='/logout';
-})
+});

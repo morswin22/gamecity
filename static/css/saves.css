@@ -20,6 +20,33 @@
   display: flex;
   width: 350px;
   margin: 4em auto 1em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.wrapper form {
+  width: 100%;
+  position: relative;
+  margin-bottom: 1em;
+}
+
+.wrapper form input[name="name"] {
+  width: calc(100% - 30px);
+  border-bottom: 1px solid #ddd;
+  margin: 0.7em 0;
+  padding: 0.3em;
+  outline: none;
+}
+
+.wrapper form i {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  top: 13px;
+  color: #ababab;
+  cursor: pointer;
 }
 
 .wrapper ul {

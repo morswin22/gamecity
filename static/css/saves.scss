@@ -18,6 +18,32 @@
     width: 350px;
     margin: 4em auto 1em;
 
+    flex-direction: column;
+
+    form {
+        width: 100%;
+        position: relative;
+
+        input[name="name"] {
+            width: calc(100% - 30px);
+            border-bottom: 1px solid #ddd;
+            margin: 0.7em 0;
+            padding: 0.3em;
+            outline: none;
+        }
+
+        i {
+            font-size: 24px;
+            position: absolute;
+            right: 0;
+            top: 13px;
+            color: #ababab;
+            cursor: pointer;
+        }
+
+        margin-bottom: 1em;
+    }
+
     ul {
         width: 100%;
         li {

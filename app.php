@@ -17,6 +17,16 @@ route('/canvas', function() {
     render('canvas.html');
 });
 
+route('/process-game', function() {
+    requireLogged();
+    if (isset($_SESSION['saveId'])) {
+        require "gameData/main.php";
+        $game->run($_SESSION['email'], $_SESSION['saveId']);
+    } else {
+        redirect('/saves');
+    }
+});
+
 route('/saves', function() {
     requireLogged();
     render('saves.html');
@@ -26,6 +36,37 @@ route('/getSaves', function() {
     requireLogged();
     $user = json_decode(file_get_contents('data/users/'.$_SESSION['email'].'.json'),true);
     print(json_encode($user['saves']));
+});
+
+route('/newSave', function() {
+    requireLogged();
+    if (isset($_POST['name'])) {
+        $name = trim($_POST['name']);
+        if (!empty($name)) {
+            if (is_dir('data/saves/'.$_SESSION['email'].'/')) {
+                $lastIdFile = json_decode(file_get_contents('data/saves/'.$_SESSION['email'].'/lastId.json'),true);
+                $lastId = $lastIdFile['lastId'];
+            } else {
+                $lastId = 0;
+                mkdir('data/saves/'.$_SESSION['email'].'/');
+                $lastIdFile = array('lastId'=>$lastId);
+                file_put_contents('data/saves/'.$_SESSION['email'].'/lastId.json', json_encode($lastIdFile));
+            }
+            file_put_contents('data/saves/'.$_SESSION['email']."/save$lastId.json", json_encode(array('needsSetup'=>true)));
+
+            $user = json_decode(file_get_contents('data/users/'.$_SESSION['email'].'.json'), true);
+            array_push($user['saves'], array('name'=>$name, 'id'=>$lastId));
+            file_put_contents('data/users/'.$_SESSION['email'].'.json', json_encode($user));
+            
+            $lastIdFile['lastId']++;
+            file_put_contents('data/saves/'.$_SESSION['email'].'/lastId.json', json_encode($lastIdFile));
+        } else {
+            setError('Please, insert a save name', 'danger');
+        }
+    } else {
+        setError();
+    }
+    redirect('/saves');
 });
 
 route('/loadSave/:id', function($args) {

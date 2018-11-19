@@ -1,3 +1,5 @@
+const updateIntervalValue = 5000;
+
 let topDocument = window.top.document;
 let wrapper = topDocument.querySelector('.wrapper');
 
@@ -28,7 +30,7 @@ for (let li of menuDOM.querySelectorAll('li')) {
 
 let statsDOM = wrapper.querySelector('#stats');
 show(statsDOM);
-statsDOM.innerHTML = 'Statistics';
+statsDOM.innerHTML = 'Statistic';
 
 
 function show(elem) {
@@ -55,3 +57,10 @@ function mouseDragged() {
     strokeWeight(random(1,3)*16);
     point(mouseX, mouseY);
 }
+
+async function processGame() {
+    let res = await (await fetch('/process-game')).text();
+    console.log(res);
+}
+processGame();
+setInterval(processGame, updateIntervalValue);
