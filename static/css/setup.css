@@ -1,0 +1,115 @@
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 800px;
+  margin: 4em auto 1em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.wrapper h1 {
+  font-weight: normal;
+  font-size: 2em;
+}
+
+.wrapper > div {
+  margin-bottom: 2em;
+}
+
+.wrapper > div > p {
+  font-weight: bold;
+}
+
+.wrapper .columns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.wrapper .showcase img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 1em;
+}
+
+.wrapper .showcase figcaption div:nth-of-type(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 0.5em;
+}
+
+.wrapper .showcase input[type=range] {
+  width: 85px;
+  outline: none;
+}
+
+.wrapper table {
+  width: 100%;
+  border-spacing: 1.5em;
+}
+
+.wrapper table select {
+  width: 75%;
+}
+
+.wrapper input[type=submit] {
+  cursor: pointer;
+  width: 250px;
+  padding: 0.3em 0;
+  margin: 1em auto;
+  outline: none;
+  border: 1px solid;
+  border-radius: 3px;
+  border-color: #28a745;
+  color: #28a745;
+  background-color: transparent;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+.wrapper input[type=submit]:hover {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.wrapper input[type=submit]:active {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+}
+
+#menu {
+  position: absolute;
+  top: .5em;
+  right: 2em;
+  margin: 1em;
+}
+
+#menu li {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 0.5em;
+  padding: 0.7em 0.9em;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 14px;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+}
+
+#menu li:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+/*# sourceMappingURL=setup.css.map */

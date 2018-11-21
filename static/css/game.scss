@@ -54,4 +54,64 @@ body {
         max-width: 150px;
         max-height: 300px;
     }
+
+    .transforming {
+        transition: transform 300ms ease;
+        transform: scale(0.01);
+    }
+
+    .opened {
+        div {
+            &:nth-of-type(1) {
+                display: none;
+            }
+            &:nth-of-type(2) {
+                display: initial;
+            }
+        }
+    }
+
+    .closed {
+        div {
+            &:nth-of-type(1) {
+                display: initial;
+            }
+            &:nth-of-type(2) {
+                display: none;
+            }
+        }
+    }
+
+    .close {
+        float: right;
+        cursor: pointer;
+    }
+
+    #tools {
+        position: absolute;
+        display: flex;
+        bottom: 0;
+        left: 0;
+        top: initial;
+        transform: none;
+        display: initial;
+        cursor: default;
+        background-color: transparent;
+        border: none;
+        border-radius: initial;
+        padding-bottom: 0.5em;
+        
+        &>div {
+            background-color: white;
+            padding: 0.8em;
+            padding-bottom: 0.5em;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            margin: 0 0.3em;
+            cursor: pointer;
+            & * {
+                cursor: pointer;
+            }
+        }
+    }
 }

@@ -1,0 +1,124 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/setup.css">
+{% endblock %}
+
+{% block body %}
+<ul id="menu">
+    <li>Saves</li>
+    <li>Logout</li>
+</ul>
+
+<form class="wrapper" action="/process-setup-game" method='POST'>
+
+    <h1>Setup {{saveName}}</h1>
+
+    <div>
+        <p>Base villagers</p>
+        <div class="columns" id="basevillagersSliders">
+            <figure class="showcase">
+                <img src="/static/img/showcase/lumberjack.png" alt="The lumberjack">
+                <figcaption>
+                    <div>The lumberjack</div>
+                    <div>
+                        <span>2</span>
+                        <div class="slidecontainer"><input type="range" name='LumberjackCount' min='1' max='3' value="2" step="1"></div>
+                    </div>
+                </figcaption>
+            </figure>
+            <figure class="showcase">
+                <img src="/static/img/showcase/farmer.png" alt="The farmer">
+                <figcaption>
+                    <div>The farmer</div>
+                    <div>
+                        <span>2</span>
+                        <div class="slidecontainer"><input type="range" name='FarmerCount' min='1' max='3' value="2" step="1"></div>
+                    </div>
+                </figcaption>
+            </figure>
+            <figure class="showcase">
+                <img src="/static/img/showcase/blacksmith.png" alt="The blacksmith">
+                <figcaption>
+                    <div>The blacksmith</div>
+                    <div>
+                        <span>2</span>
+                        <div class="slidecontainer"><input type="range" name='BlacksmithCount' min='1' max='3' value="2" step="1"></div>
+                    </div>
+                </figcaption>
+            </figure>
+            <figure class="showcase">
+                <img src="/static/img/showcase/miner.png" alt="The miner">
+                <figcaption>
+                    <div>The miner</div>
+                    <div>
+                        <span>2</span>
+                        <div class="slidecontainer"><input type="range" name='MinerCount' min='1' max='3' value="2" step="1"></div>
+                    </div>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <div>
+        <p>Survivability level</p>
+        <table>
+            <tr>
+                <td>Villagers hunger</td>
+                <td>
+                    <select name="VillagersHunger">
+                        <option value="0">No hunger</option>
+                        <option value="1" selected>Normal</option>
+                        <option value="2">Extreme hunger</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Villagers Health Regeneration</td>
+                <td>
+                    <select name="VillagersHealthRegeneration">
+                        <option value="0">When eating</option>
+                        <option value="1" selected>Normal</option>
+                        <option value="2">No regen</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Animal spawns</td>
+                <td>
+                    <select name="AnimalSpawns">
+                        <option value="0">Every day</option>
+                        <option value="1" selected>Normal</option>
+                        <option value="2">No random spawns</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Zombie sieges</td>
+                <td>
+                    <select name="ZombieSieges">
+                        <option value="0">No sieges</option>
+                        <option value="1" selected>Normal</option>
+                        <option value="2">Often raids</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Merchant arrivals</td>
+                <td>
+                    <select name="MerchantArrivals">
+                        <option value="0">Every day</option>
+                        <option value="1" selected>Normal</option>
+                        <option value="2">Rarely</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <input type="submit" value='SETUP'>
+
+</form>
+
+<script src="/static/js/setup.js"></script>
+{% endblock %}

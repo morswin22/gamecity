@@ -42,6 +42,16 @@ async function getSaves() {
 
         li.appendChild(i);
 
+        let iDel = document.createElement('i');
+        iDel.innerHTML = 'delete';
+        iDel.classList.add('material-icons');
+        iDel.setAttribute('data-save-id', save['id']);
+        iDel.addEventListener('click', elt=>{
+            location.href='/deleteSave/'+elt.target.getAttribute('data-save-id');
+        });
+
+        li.appendChild(iDel);
+
         savesList.appendChild(li);
     }
 }

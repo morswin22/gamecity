@@ -27,8 +27,37 @@ route('/process-game', function() {
     }
 });
 
+route('/setup-game', function() {
+    requireLogged();
+    if (isset($_SESSION['saveId'])) {
+        $user = json_decode(file_get_contents('data/users/'.$_SESSION['email'].'.json'), true);
+        $saveName = '';
+        foreach ($user['saves'] as $key => $save) {
+            if ($save['id'] == $_SESSION['saveId']) {
+                $saveName = $save['name'];
+            }
+        }
+        render('setup.html', array('saveName'=>$saveName));
+    } else {
+        redirect('/saves');
+    }
+});
+
+route('/process-setup-game', function() {
+    requireLogged();
+    if (isset($_SESSION['saveId'])) {
+        // only if save needs setup
+        echo "<pre>",print_r($_POST),"</pre>";
+    } else {
+        redirect('/saves');
+    }
+});
+
 route('/saves', function() {
     requireLogged();
+    if (isset($_SESSION['saveId'])) {
+        unset($_SESSION['saveId']);
+    }
     render('saves.html');
 });
 
@@ -73,6 +102,45 @@ route('/loadSave/:id', function($args) {
     requireLogged();
     $_SESSION['saveId'] = $args['id']; // but first check if that save exists!
     redirect('/game');
+});
+
+route('/deleteSave/:id', function($args) {
+    requireLogged();
+    if (is_file('data/saves/'.$_SESSION['email'].'/save'.$args['id'].'.json')) {
+        $user = json_decode(file_get_contents('data/users/'.$_SESSION['email'].'.json'), true);
+        $saveName = '';
+        foreach ($user['saves'] as $key => $save) {
+            if ($save['id'] == $args['id']) {
+                $saveName = $save['name'];
+            }
+        }
+        render('deleteSave.html', array('saveId'=>$args['id'], 'saveName'=>$saveName));
+    } else {
+        redirect('/saves');
+    }
+});
+
+route('/deleteSaveConfirmed/:id', function($args) {
+    requireLogged();
+    if (is_file('data/saves/'.$_SESSION['email'].'/save'.$args['id'].'.json')) {
+        $user = json_decode(file_get_contents('data/users/'.$_SESSION['email'].'.json'), true);
+        $saveKey = -1;
+        foreach ($user['saves'] as $key => $save) {
+            if ($save['id'] == $args['id']) {
+                $saveKey = $key;
+            }
+        }
+        if ($saveKey != -1) {
+            unlink('data/saves/'.$_SESSION['email'].'/save'.$args['id'].'.json');
+            unset($user['saves'][$saveKey]);
+            repairArray($user['saves']);
+            file_put_contents('data/users/'.$_SESSION['email'].'.json', json_encode($user));
+            if (count(scandir('data/saves/'.$_SESSION['email'].'/')) == 3) {
+                file_put_contents('data/saves/'.$_SESSION['email'].'/lastId.json', '{"lastId":0}');
+            }
+        }
+    }
+    redirect('/saves');
 });
 
 route('/register', function() {

@@ -63,6 +63,21 @@
   cursor: pointer;
   position: absolute;
   top: 3px;
+}
+
+.wrapper ul li i:nth-of-type(1) {
   right: 0;
+}
+
+.wrapper ul li i:nth-of-type(2) {
+  color: #dc3545;
+  display: none;
+  left: 0;
+  margin-left: -2em;
+  width: 2em;
+}
+
+.wrapper ul li:hover i:nth-of-type(2) {
+  display: initial;
 }
 /*# sourceMappingURL=saves.css.map */

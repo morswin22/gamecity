@@ -13,11 +13,14 @@ class Game {
     public function run($userEmail, $userSaveId) {
         try {
             $this->user = new User($userEmail);
-            $this->user->loadSave($userSaveId);
+            if ($this->user->loadSave($userSaveId)) {
+                print('Ok');
+            } else {
+                print('Needs setup');
+            }
         } catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
-        // throw new Exception('msg');
     }
 }
 

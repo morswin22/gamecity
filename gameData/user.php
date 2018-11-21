@@ -16,7 +16,11 @@ class User {
         if (is_dir("data/saves/".$this->data['email']."/")) {
             if (is_file("data/saves/".$this->data['email']."/save$saveId.json")) {
                 $this->save = json_decode(file_get_contents("data/saves/".$this->data['email']."/save$saveId.json"), true);
-                // here i have finished yesterday
+                if ($this->save['needsSetup']) {
+                    return false;
+                } else {
+                    return true;
+                }
             } else {
                 throw new Exception("Didn't find save with this id");
             }

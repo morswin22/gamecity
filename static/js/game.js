@@ -26,6 +26,43 @@ function constrain(value, type, elem) {
     return value;
 }
 
+/*
+*   Toolbar
+*/
+let wrapper = document.querySelector('.wrapper');
+let tools = document.querySelector('#tools');
+let toolsElements = [];
+toolsElements.push(document.querySelector('#stats'));
+
+for (let element of toolsElements) {
+  element.querySelector('.close').addEventListener('click', ()=>{
+  	if (element.getAttribute('class') == 'opened') {
+      let top = (window.innerHeight - parseInt(element.style.top.slice(0,-2)));
+      element.style.transformOrigin = `-${parseInt(element.style.left.slice(0,-2))}px ${top}px`;
+      element.classList.add('transforming');
+      setTimeout(()=>{
+        element.classList.remove('transforming');
+        wrapper.removeChild(element);
+        tools.appendChild(element);
+        element.classList.add('closed');
+        element.classList.remove('opened');
+      }, 300);
+    }
+  });
+  element.addEventListener('click', ()=>{
+    if (element.getAttribute('class') == 'closed') {
+      element.style.transformOrigin = 'center center';
+      tools.removeChild(element);
+      wrapper.appendChild(element);
+      element.classList.add('opened');
+      element.classList.remove('closed');
+    }
+  })
+}
+
+/*
+*   Drag Element Script 
+*/
 function dragElement(elmnt, id) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
@@ -37,14 +74,16 @@ function dragElement(elmnt, id) {
   }
 
   function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
+    if (e.target.className != "closed" && e.target.parentElement.className != 'closed' && e.target.parentElement.parentElement.className != 'closed') {
+      e = e || window.event;
+      e.preventDefault();
+      // get the mouse cursor position at startup:
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      // call a function whenever the cursor moves:
+      document.onmousemove = elementDrag;
+    }
   }
 
   function elementDrag(e) {

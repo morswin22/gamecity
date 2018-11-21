@@ -30,7 +30,10 @@ for (let li of menuDOM.querySelectorAll('li')) {
 
 let statsDOM = wrapper.querySelector('#stats');
 show(statsDOM);
-statsDOM.innerHTML = 'Statistic';
+let statsInner = statsDOM.querySelector('div:nth-of-type(2)');
+let statsHeader = document.createElement('span');
+statsHeader.innerHTML = 'Statistic';
+statsInner.appendChild(statsHeader);
 
 
 function show(elem) {
@@ -59,8 +62,12 @@ function mouseDragged() {
 }
 
 async function processGame() {
-    let res = await (await fetch('/process-game')).text();
-    console.log(res);
+    let res = await fetch('/process-game');
+    if (await res.text() == 'Needs setup') {
+        window.top.location.href = '/setup-game';
+    } else {
+        console.log(res);
+    }
 }
 processGame();
 setInterval(processGame, updateIntervalValue);

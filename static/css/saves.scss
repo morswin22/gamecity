@@ -54,7 +54,24 @@
                 cursor: pointer;
                 position: absolute;
                 top: 3px;
-                right:0;
+
+                &:nth-of-type(1) {
+                    right:0;
+                }
+
+                &:nth-of-type(2) {
+                    color: #dc3545;
+                    display: none;
+                    left: 0;
+                    margin-left: -2em;
+                    width: 2em;
+                }
+            }
+
+            &:hover {
+                i:nth-of-type(2) {
+                    display: initial;
+                }
             }
         }
     }

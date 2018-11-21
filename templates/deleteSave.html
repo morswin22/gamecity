@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/confirmation.css">
+{% endblock %}
+
+{% block body %}
+<div class="wrapper">
+    <h1>Are you sure you want to delete "{{saveName}}"?</h1>
+    <div>
+        <a href="/saves">No</a>
+        <a href="/deleteSaveConfirmed/{{saveId}}">Yes</a>
+    </div>
+</div>
+{% endblock %}

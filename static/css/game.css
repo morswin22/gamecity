@@ -53,4 +53,66 @@ body {
   max-width: 150px;
   max-height: 300px;
 }
+
+.wrapper .transforming {
+  -webkit-transition: -webkit-transform 300ms ease;
+  transition: -webkit-transform 300ms ease;
+  transition: transform 300ms ease;
+  transition: transform 300ms ease, -webkit-transform 300ms ease;
+  -webkit-transform: scale(0.01);
+          transform: scale(0.01);
+}
+
+.wrapper .opened div:nth-of-type(1) {
+  display: none;
+}
+
+.wrapper .opened div:nth-of-type(2) {
+  display: initial;
+}
+
+.wrapper .closed div:nth-of-type(1) {
+  display: initial;
+}
+
+.wrapper .closed div:nth-of-type(2) {
+  display: none;
+}
+
+.wrapper .close {
+  float: right;
+  cursor: pointer;
+}
+
+.wrapper #tools {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  top: initial;
+  -webkit-transform: none;
+          transform: none;
+  display: initial;
+  cursor: default;
+  background-color: transparent;
+  border: none;
+  border-radius: initial;
+  padding-bottom: 0.5em;
+}
+
+.wrapper #tools > div {
+  background-color: white;
+  padding: 0.8em;
+  padding-bottom: 0.5em;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin: 0 0.3em;
+  cursor: pointer;
+}
+
+.wrapper #tools > div * {
+  cursor: pointer;
+}
 /*# sourceMappingURL=game.css.map */

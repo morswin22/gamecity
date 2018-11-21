@@ -41,4 +41,12 @@ function requireLogged() {
     }
 }
 
+function repairArray(&$array) {
+    $newArray = array();
+    foreach($array as $value) {
+        $newArray[] = $value;
+    }
+    $array = $newArray;
+}
+
 ?>
