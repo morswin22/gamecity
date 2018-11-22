@@ -1,8 +1,10 @@
 <?php
 
+require_once 'save.php';
+
 class User {
-    private $data;
-    private $save;
+    public $data;
+    public $save;
 
     public function __construct($email) {
         if (is_file("data/users/$email.json")) {
