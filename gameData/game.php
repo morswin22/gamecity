@@ -14,10 +14,9 @@ class Game {
         try {
             $this->user = new User($userEmail);
             if ($this->user->loadSave($userSaveId)) {
-                print('Ok');
-            } else {
-                print('Needs setup');
-            }
+                
+            } 
+            print(json_encode($this->user->save));
         } catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }

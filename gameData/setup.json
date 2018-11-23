@@ -1,0 +1,116 @@
+{  
+    "baseVillagers": {  
+       "LumberjackCount": "lumberjack",
+       "FarmerCount": "farmer",
+       "BlacksmithCount": "blacksmith",
+       "MinerCount": "miner"
+    },
+    "villagerConfig": {
+        "name": [
+            "Addy",
+            "Aldith",
+            "Aldreda",
+            "Aldus",
+            "Amice",
+            "Amis",
+            "Bate",
+            "Col",
+            "Daw",
+            "Dicun",
+            "Diot",
+            "Dye",
+            "Eda",
+            "Elis",
+            "Elric",
+            "Etheldred",
+            "Etheldreda",
+            "Firmin",
+            "Hamo",
+            "Hamon",
+            "Hankin",
+            "Hann",
+            "Herry",
+            "Hob",
+            "Hopkin",
+            "Hudde",
+            "Ibb",
+            "Iseut",
+            "Jackin",
+            "Jan",
+            "Jankin",
+            "Jocosa",
+            "Judd",
+            "Kinborough",
+            "Larkin",
+            "Law",
+            "Mack",
+            "Malle",
+            "Matty",
+            "Meggy",
+            "Molle",
+            "Morris",
+            "Nichol",
+            "Nicol",
+            "Noll",
+            "Ode",
+            "Pate",
+            "Randel",
+            "Rohese",
+            "Rohesia",
+            "Roul",
+            "Royse",
+            "Stace",
+            "Tenney",
+            "Wilkin",
+            "Wilky",
+            "Wilmot",
+            "Wybert",
+            "Wymond",
+            "Wyot"
+        ]
+    },
+    "buildingConfig": {
+        "community storage": {
+            "name": "Community storage",
+            "size": 80
+        },
+        "mine": {
+            "name": "Mine",
+            "production-item": [ 
+                "cobblestone", "coal", "iron ore", "gold ore", "diamond"
+            ],
+            "size": 12
+        },
+        "farm": {
+            "name": "Farm",
+            "production-item": [
+                ["wheat", "wheat seed"], "potato", "carrot", "beetroot"
+            ],
+            "size": 12
+        },
+        "lumber mill": {
+            "name": "Lumber mill",
+            "production-item": [
+                "log", "sappling", "apple"
+            ],
+            "size": 12
+        },
+        "default": {
+            "capacity": 3,
+            "level": 1
+        }
+    },
+    "baseBuildings": [  
+       "community storage",
+       "mine",
+       "farm",
+       "lumber mill"
+    ],
+    "gameplaySettings": [  
+       "VillagersHunger",
+       "VillagersHealthRegeneration",
+       "AnimalSpawns",
+       "ZombieSieges",
+       "MerchantArrivals"
+    ]
+ }

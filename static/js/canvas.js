@@ -62,8 +62,8 @@ function mouseDragged() {
 }
 
 async function processGame() {
-    let res = await fetch('/process-game');
-    if (await res.text() == 'Needs setup') {
+    let res = await(await fetch('/process-game')).json();
+    if (res['needsSetup'] == true) {
         window.top.location.href = '/setup-game';
     } else {
         console.log(res);

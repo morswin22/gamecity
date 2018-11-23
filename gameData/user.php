@@ -30,6 +30,15 @@ class User {
             throw new Exception('No saves stored');
         }
     }
+
+    public function updateSave($saveId, $data) {
+        if (isset($this->save)) {
+            foreach($data as $key => $value) {
+                $this->save[$key] = $value;
+            }
+            file_put_contents("data/saves/".$this->data['email']."/save$saveId.json", json_encode($this->save));
+        }
+    }
 }
 
 ?>

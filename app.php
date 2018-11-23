@@ -48,6 +48,7 @@ route('/process-setup-game', function() {
     if (isset($_SESSION['saveId'])) {
         require "gameData/setup.php";
         $setup = new GameSetup($_SESSION['email'], $_SESSION['saveId'], $_POST);
+        redirect('/game');
     } else {
         redirect('/saves');
     }
