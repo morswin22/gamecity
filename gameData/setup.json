@@ -72,6 +72,8 @@
     "buildingConfig": {
         "community storage": {
             "name": "Community storage",
+            "width": 256,
+            "location": [1582, 202],
             "size": 80
         },
         "mine": {
@@ -79,6 +81,8 @@
             "production-item": [ 
                 "cobblestone", "coal", "iron ore", "gold ore", "diamond"
             ],
+            "width": 256,
+            "location": [440, 191],
             "size": 12
         },
         "farm": {
@@ -86,6 +90,8 @@
             "production-item": [
                 ["wheat", "wheat seed"], "potato", "carrot", "beetroot"
             ],
+            "width": 256,
+            "location": [477, 760],
             "size": 12
         },
         "lumber mill": {
@@ -93,7 +99,15 @@
             "production-item": [
                 "log", "sappling", "apple"
             ],
+            "width": 256,
+            "location": [1643, 784],
             "size": 12
+        },
+        "blacksmith": {
+            "name": "Blacksmith",
+            "width": 256,
+            "location": [1259, 663],
+            "size": 6
         },
         "default": {
             "capacity": 3,
@@ -104,7 +118,8 @@
        "community storage",
        "mine",
        "farm",
-       "lumber mill"
+       "lumber mill",
+       "blacksmith"
     ],
     "gameplaySettings": [  
        "VillagersHunger",

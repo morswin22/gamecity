@@ -17,6 +17,17 @@ route('/canvas', function() {
     render('canvas.html');
 });
 
+route('/getAssets', function() {
+    requireLogged();
+    $imgsPath = 'static/img/';
+    $assets = array();
+    $names = array('buildings');
+    foreach ($names as $name) {
+        $assets[$name] = array_slice(scandir($imgsPath.$name),2);
+    }
+    print(json_encode($assets));
+});
+
 route('/process-game', function() {
     requireLogged();
     if (isset($_SESSION['saveId'])) {
